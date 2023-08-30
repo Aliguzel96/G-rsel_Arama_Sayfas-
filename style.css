@@ -53,6 +53,7 @@ form{
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 20px;
 }
 
 .search-result{
@@ -103,4 +104,30 @@ form{
 
 #show-more-button:hover{
     background-color: #0077b5; /*butonun üstüne gelince rengi değişsin*/
+}
+
+/*responsive yapmak için mediaquery kullanacaz*/
+
+@media screen and (max-width: 768px){/*ortalama tablet çözünürlüğü için*/
+    .search-result{
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 480px){/*ortalama telefon çözünürlüğü için*/
+    .search-result{
+        width: 100%;
+    }
+    form{/*telefonda iken input ve yanındaki buton alt alta gelsin*/
+        flex-direction: column;
+    }
+    #search-input{
+        width: 85%;
+        margin-bottom: 20px;
+        width: 85%;
+    }
+    #search-button{
+        
+        width: 35%;
+    }
 }
