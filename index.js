@@ -32,7 +32,7 @@ async function searchImages()
         image.src = result.urls.small;//img içerisine gelecek image'yi json'dan çektik, result.urls.small uzantısı json'dan geliyor
         image.alt = result.alt_description;
         const imageLink = document.createElement("a")//resmin altına bir link ekledik
-        imageLink.href = result.links.hmtl;
+        imageLink.href = result.links.html;
         imageLink.target = "_blank";
         imageLink.textContent = result.alt_description;
 
