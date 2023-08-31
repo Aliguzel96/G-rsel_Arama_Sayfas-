@@ -3,7 +3,7 @@ const accessKey = "VM9EiCZsA1ctCahzuZVscijwgWK-jaMN4BpufSJfRZM";
 const formElement = document.querySelector("form");
 const searchInputElement = document.getElementById("search-input");
 const searchResultsElements = document.querySelector(".search-results");
-const showMoreButton = document.getElementById("show-more-button");
+const showMoreButtonElement = document.getElementById("show-more-button");
 
 let inputData = "";//let kullandık ki kullanıcı her seferinde farklı input gireceği için bu değer sabit kalmayacak
 let page = 1; //mevcut sayfanın index numarası. (sonuç çıkınca ilk sayfa)
@@ -15,6 +15,7 @@ async function searchImages()
     console.log(url);
     const response = await fetch(url);//await kullanarak sonucun gelmesini bekletiyoruz. Url sonucu dönen veriyi fetch ile aldık (url formatında)
     const data = await response.json();//url biçimindeki veriyi json'a çevirerek ulaşılabilir yaptık
+    console.log(data);
     
     // console.log(data);
 
@@ -46,7 +47,7 @@ async function searchImages()
 
     if(page > 1)//kullanıcı artık sayfayı kullandı ve butonu yükleyebiliriz
     {
-        showMoreButton.style.display = "block";//butonun erişilebilirliğine ulaş ve görünür kıl
+        showMoreButtonElement.style.display = "block";//butonun erişilebilirliğine ulaş ve görünür kıl
     }
 
    
@@ -59,3 +60,7 @@ formElement.addEventListener("submit", (event)=> {
     page = 1;
     searchImages();
 })
+
+showMoreButtonElement.addEventListener("click", ()=>{
+    searchImages();
+});
